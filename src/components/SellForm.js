@@ -23,7 +23,7 @@ class SellForm extends Component {
           }          
         }}>
         <div>
-          <label className="float-left"><b>Pay</b> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; 1 ACASH = $1</label>
+          <font color="red" className="float-left"><b>Pay</b><font color="black"> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; 1 A-CASH = $1</font></font>
           <span className="float-right text-muted">
             Balance: {(Math.round(100*window.web3.utils.fromWei(this.props.tokenBalance, 'Ether'))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2})}
           </span>
@@ -44,7 +44,7 @@ class SellForm extends Component {
                     this.setState({
                       output: (Math.round(10000000 * (tokenAmount / (roundData[1] / 10 ** 8)))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})
                     })
-                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' ACASH = 1 ETH'
+                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH = 1 ETH'
                     document.getElementsByClassName('float-left text-muted')[0].innerHTML = 'Exchange Rate'
                   })
             }}
@@ -55,7 +55,7 @@ class SellForm extends Component {
           <div className="input-group-append">
             <div className="input-group-text">
               <img src={tokenLogo} height='32' alt=""/>
-                &nbsp; ACASH
+                &nbsp; A-CASH
             </div>
           </div>
         </div>

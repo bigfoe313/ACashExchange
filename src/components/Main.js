@@ -44,7 +44,7 @@ class Main extends Component {
                 this.setState({ currentForm: 'buy' })
               }}
             >
-            Buy ACASH
+            Buy A-CASH
           </button>
           <button
               className="btn btn-default"
@@ -61,7 +61,7 @@ class Main extends Component {
                 this.setState({ currentForm: 'sell' })
               }}
             >
-            Sell ACASH
+            Sell A-CASH
           </button>
         </div>
 

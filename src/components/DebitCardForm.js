@@ -41,7 +41,7 @@ class DebitCardForm extends Component {
           /// return false;          
       }}>
         <div>
-          <label className="float-left"><b>Pay</b> (5 ACASH Min.) &emsp; &emsp; &emsp; &nbsp; 1 ACASH = $1</label>
+          <font color="red" className="float-left"><b>Pay</b><font color="black"> (5 A-CASH Min.) &emsp; &emsp; &emsp; &nbsp; 1 A-CASH = $1</font></font>
           <span className="float-right text-muted">
             Balance: {(Math.round(100*window.web3.utils.fromWei(this.props.tokenBalance, 'Ether'))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2})}
           </span>
@@ -62,18 +62,20 @@ class DebitCardForm extends Component {
                     this.setState({
                       output: (Math.round(10000000 * (tokenAmount / (roundData[1] / 10 ** 8)))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})
                     })
-                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' ACASH = 1 ETH'
+                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH = 1 ETH'
                     document.getElementsByClassName('float-left text-muted')[0].innerHTML = 'Exchange Rate'
                   })
             }}
             ref={(input) => { this.input = input }}
+            type="number"
             className="form-control form-control-lg"
             placeholder="0"
+            min="5"
             required />
           <div className="input-group-append">
             <div className="input-group-text">
               <img src={tokenLogo} height='32' alt=""/>
-                &nbsp; ACASH
+                &nbsp; A-CASH
             </div>
           </div>
         </div>
@@ -104,7 +106,7 @@ class DebitCardForm extends Component {
           <span className="float-right text-muted"></span>
         </div>
         <div className="mb-2">
-          <label className="float-left"><b>Coinbase Ethereum Address </b> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; (copy from <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">https://accounts.coinbase.com/profile/crypto-addresses</a>)</label>
+          <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-left"><b>Coinbase Ethereum Address </b><font color="black"> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; (copy from <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">https://accounts.coinbase.com/profile/crypto-addresses</a>)</font></font>
           <input
             type="text"
             className="form-control form-control-lg"
@@ -114,6 +116,9 @@ class DebitCardForm extends Component {
           />
         </div>
         <button type="submit" className="btn btn-primary btn-block btn-lg">SWAP</button>
+        <p> </p>
+        <center><p title="Get A-CASH back for purchases using links below">Use A-CASH debit card online!</p></center>
+        <center><p><a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com">Amazon</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.CVS.com">CVS</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.Kroger.com">Kroger</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.DollarGeneral.com">Dollar General</a></p></center>
       </form>
     );
   }
