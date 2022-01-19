@@ -25,6 +25,7 @@
     "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.5.0"
   },
+  "homepage": "https://bigfoe313.github.io/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
