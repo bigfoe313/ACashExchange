@@ -57,7 +57,7 @@ class App extends Component {
     }
     else {
       let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
-      // window.web3 = new Web3(fm.getProvider()); 
+      window.web3 = new Web3(fm.getProvider()); 
       window.web3.currentProvider.enable();
       // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
     }
