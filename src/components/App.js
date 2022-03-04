@@ -18,7 +18,7 @@ class App extends Component {
     const web3 = window.web3
 
     const accounts = await web3.eth.getAccounts()
-    this.setState({ account: accounts[1] })
+    this.setState({ account: accounts[0] })
 
     const ethBalance = await web3.eth.getBalance(this.state.account)
     this.setState({ ethBalance })
@@ -57,7 +57,7 @@ class App extends Component {
     }
     else {
       let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
-      window.web3 = new Web3(fm.getProvider()); 
+      // window.web3 = new Web3(fm.getProvider()); 
       window.web3.currentProvider.enable();
       // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
     }
