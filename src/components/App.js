@@ -18,7 +18,7 @@ class App extends Component {
     const web3 = window.web3
 
     const accounts = await web3.eth.getAccounts()
-    this.setState({ account: accounts[0] })
+    this.setState({ account: accounts[1] })
 
     const ethBalance = await web3.eth.getBalance(this.state.account)
     this.setState({ ethBalance })
