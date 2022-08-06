@@ -11,7 +11,7 @@ class Main extends Component {
     }
   }
 
-  render() {
+    render() {
     let content
     if(this.state.currentForm === 'buy') {
       content = <BuyForm
@@ -38,30 +38,30 @@ class Main extends Component {
     return (
       <div id="content" className="mt-3">
         <div className="d-flex justify-content-between mb-3">
-          <button
-              className="btn btn-default"
+          <button 
+              className={this.state.currentForm === "buy" ? "btn btn-primary" : "btn btn-light" } 
               onClick={(event) => {
                 this.setState({ currentForm: 'buy' })
               }}
             >
-            Buy A-CASH
+            Buy<br />A-CASH
           </button>
           <button
-              className="btn btn-default"
+              className={this.state.currentForm === "debitcard" ? "btn btn-primary" : "btn btn-light" }
               title="Requires Coinbase account connected to paywithmoon.com"
               onClick={(event) => {
                 this.setState({ currentForm: 'debitcard' })
               }}
             >
-            Get Debit Card
+            Get<br />Debit Card
           </button>          
           <button
-              className="btn btn-default"
+              className={this.state.currentForm === "sell" ? "btn btn-primary" : "btn btn-light" }
               onClick={(event) => {
                 this.setState({ currentForm: 'sell' })
               }}
             >
-            Sell A-CASH
+            Sell<br />A-CASH
           </button>
         </div>
 

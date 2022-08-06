@@ -5,20 +5,48 @@ import EthSwap from '../abis/EthSwap.json'
 import Navbar from './Navbar'
 import Main from './Main'
 import './App.css'
-import Fortmatic from 'fortmatic';
+// import Fortmatic from 'fortmatic';
+// import Authereum from 'authereum'
+import Web3Modal from "web3modal";
+import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+import { Magic } from 'magic-sdk';
+import { ConnectExtension } from '@magic-ext/connect';
+/* 
+const providerOptions = {
+  burnerconnect: {
+    package: BurnerConnectProvider, // required
+    options: {
+    }
+  }
+};
 
+const web3Modal = new Web3Modal({
+  network: "kovan", // optional
+  // cacheProvider: true, // optional
+  providerOptions // required
+});
+ 
+const provider = web3Modal.connect();
+ 
+const web = new Web3(provider);
+*/
 class App extends Component {
 
   async componentWillMount() {
-    await this.loadWeb3()
+  await this.loadWeb3()
     await this.loadBlockchainData()
   }
 
   async loadBlockchainData() {
     const web3 = window.web3
-
     const accounts = await web3.eth.getAccounts()
+    // let accounts = ["0x0CA9BF5bf0551A98B5a969811eD9a18b01C9f61c"]
     this.setState({ account: accounts[0] })
+      // window.web3.eth.sendTransaction({
+      //   from: accounts[0],
+        //...
+      // });
 
     const ethBalance = await web3.eth.getBalance(this.state.account)
     this.setState({ ethBalance })
@@ -48,6 +76,7 @@ class App extends Component {
   }
 
   async loadWeb3() {
+/*
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
@@ -55,12 +84,67 @@ class App extends Component {
     else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
     }
-    else {
-      let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
-      window.web3 = new Web3(fm.getProvider());  
-      window.web3.currentProvider.enable();    
+*/    
+//     else {
+      // window.web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.infura.io/v3/9f48ede626a6442c829095f80e483afa'));
+      // let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
+      // window.web3 = new Web3(fm.getProvider());
+
+      const magic = new Magic('pk_live_C69DC35AF77113D1', {
+        extensions: [new ConnectExtension()],
+        network: "kovan", // or "ropsten" or "kovan"
+      });
+/*
+      const customNodeOptions = {
+        rpcUrl: 'https://rpc-mumbai.maticvigil.com//',
+        chainId: 8001,
+      }
+
+      const magic = new Magic('pk_live_C69DC35AF77113D1', {
+        extensions: [new ConnectExtension()],
+        network: customNodeOptions
+      });
+*/
+      // magic.connect.showWallet()
+
+      window.web3 = new Web3(magic.rpcProvider);
+      window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+      // window.web3 = new web3Modal.connect(); 
+      // window.web3 = new Web3(provider);
+      // const authereum = new Authereum('kovan')
+      // const provider = authereum.getProvider()
+      // const web3 = new Web3(provider)
+      // await provider.enable()
+      
+/*
+      const providerOptions = {
+        burnerconnect: {
+          package: BurnerConnectProvider, // required
+          options: {
+              defaultNetwork: "100",
+              // key: "pk_test_6340EF2A7082AAB7"
+          },
+        }
+      };
+      const web3Modal = new Web3Modal({
+        // network: "Gnosis", // optional
+        // cacheProvider: true, // optional
+        providerOptions // required
+      });
+ 
+      const provider = await web3Modal.connectTo("burnerconnect");
+      await provider.enable();
+      window.web3 = new Web3(provider);
+      // const accounts = await window.web3.eth.getAccounts();
+      // window.web3.eth.sendTransaction({
+      //   from: accounts[0],
+        //...
+      // });
+      // window.web3 = new web.getProvider();
+      // window.web3.currentProvider.enable();    
       // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
-    }
+*/
+    // }
   }
 
   buyTokens = (etherAmount) => {

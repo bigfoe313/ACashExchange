@@ -4,7 +4,12 @@
   "description": "An Instant ERC-20 Cryptocurrency Exchange",
   "author": "anthony_forbers",
   "dependencies": {
+    "@burner-wallet/burner-connect-provider": "^0.1.1",
+    "@magic-ext/connect": "^0.1.6",
+    "@magic-sdk/react-native": "^8.2.0",
     "@truffle/hdwallet-provider": "^2.0.0",
+    "@walletconnect/web3-provider": "^1.7.5",
+    "authereum": "^0.1.14",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-es2015": "6.24.1",
@@ -19,13 +24,15 @@
     "fortmatic": "^2.2.1",
     "gh-pages": "^3.2.3",
     "identicon.js": "^2.3.3",
+    "magic-sdk": "^8.1.1",
     "react": "16.8.4",
     "react-bootstrap": "1.0.0-beta.5",
     "react-dom": "16.8.4",
     "react-scripts": "^2.1.3",
     "truffle": "^5.4.26",
     "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "^1.5.0"
+    "web3": "^1.5.0",
+    "web3modal": "^1.9.5"
   },
   "homepage": "https://bigfoe313.github.io/ACashExchange",
   "scripts": {

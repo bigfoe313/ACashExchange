@@ -12,7 +12,7 @@ class Navbar extends Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          AfricanaSwap
+          Africana ("A-Cash") Coin Exchange
         </a>
 
         <ul className="navbar-nav px-3">

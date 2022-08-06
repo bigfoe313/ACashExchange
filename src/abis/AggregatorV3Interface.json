@@ -7,7 +7,6 @@
       "name": "decimals",
       "outputs": [
         {
-          "internalType": "uint8",
           "name": "",
           "type": "uint8"
         }
@@ -22,7 +21,6 @@
       "name": "description",
       "outputs": [
         {
-          "internalType": "string",
           "name": "",
           "type": "string"
         }
@@ -37,7 +35,6 @@
       "name": "version",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -50,7 +47,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint80",
           "name": "_roundId",
           "type": "uint80"
         }
@@ -58,27 +54,22 @@
       "name": "getRoundData",
       "outputs": [
         {
-          "internalType": "uint80",
           "name": "roundId",
           "type": "uint80"
         },
         {
-          "internalType": "int256",
           "name": "answer",
           "type": "int256"
         },
         {
-          "internalType": "uint256",
           "name": "startedAt",
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
           "name": "updatedAt",
           "type": "uint256"
         },
         {
-          "internalType": "uint80",
           "name": "answeredInRound",
           "type": "uint80"
         }
@@ -93,27 +84,22 @@
       "name": "latestRoundData",
       "outputs": [
         {
-          "internalType": "uint80",
           "name": "roundId",
           "type": "uint80"
         },
         {
-          "internalType": "int256",
           "name": "answer",
           "type": "int256"
         },
         {
-          "internalType": "uint256",
           "name": "startedAt",
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
           "name": "updatedAt",
           "type": "uint256"
         },
         {
-          "internalType": "uint80",
           "name": "answeredInRound",
           "type": "uint80"
         }
@@ -123,12 +109,11 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\"}],\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"import \\\"https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\\\";\"}},\"settings\":{\"compilationTarget\":{\"/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol\":\"AggregatorV3Interface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol\":{\"keccak256\":\"0x87764ddafbba470359c76ce206001c4d6cf2e1d82458e27d89c72960b05d016d\",\"urls\":[\"bzz-raw://5d65665c9e0fba87d3912d46d5c38c7b864f331e103ffc6376004f44b195b081\",\"dweb:/ipfs/QmXxG1zaqJYVkBb3xqrkj6tFtAGQrSuvassXZcD6CTKQE3\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.5.0;\n\n///import \"https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\ninterface AggregatorV3Interface {\n\n  function decimals() external view returns (uint8);\n  function description() external view returns (string memory);\n  function version() external view returns (uint256);\n\n  // getRoundData and latestRoundData should both raise \"No data present\"\n  // if they do not have data to report, instead of returning unset values\n  // which could be misinterpreted as actual reported values.\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n}\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419\n     */\n    /**\n     * Network: Kovan\n     * Aggregator: ETH/USD\n     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\n     */\n    constructor() public {\n        priceFeed = AggregatorV3Interface(0x9326BFA02ADD2366b30bacB125260Af641031331);\n    }\n\n    /**\n     * Returns the latest price\n     */\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.5.0;\n\n///import \"https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\ninterface AggregatorV3Interface {\n\n  function decimals() external view returns (uint8);\n  function description() external view returns (string memory);\n  function version() external view returns (uint256);\n\n  // getRoundData and latestRoundData should both raise \"No data present\"\n  // if they do not have data to report, instead of returning unset values\n  // which could be misinterpreted as actual reported values.\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n}\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419\n     */\n    /**\n     * Network: Kovan\n     * Aggregator: ETH/USD\n     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\n     */\n    constructor() public {\n        priceFeed = AggregatorV3Interface(\t0xa767f745331D267c7751297D982b050c93985627);\n    }\n\n    /**\n     * Returns the latest price\n     */\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n",
   "sourcePath": "/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol",
   "ast": {
     "absolutePath": "/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol",
@@ -721,7 +706,7 @@
             "body": {
               "id": 444,
               "nodeType": "Block",
-              "src": "1358:94:2",
+              "src": "1358:95:2",
               "statements": [
                 {
                   "expression": {
@@ -751,7 +736,7 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "hexValue": "307839333236424641303241444432333636623330626163423132353236304166363431303331333331",
+                          "hexValue": "307861373637663734353333314432363763373735313239374439383262303530633933393835363237",
                           "id": 440,
                           "isConstant": false,
                           "isLValue": false,
@@ -759,13 +744,13 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "1402:42:2",
+                          "src": "1403:42:2",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           },
-                          "value": "0x9326BFA02ADD2366b30bacB125260Af641031331"
+                          "value": "0xa767f745331D267c7751297D982b050c93985627"
                         }
                       ],
                       "expression": {
@@ -794,13 +779,13 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1380:65:2",
+                      "src": "1380:66:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
-                    "src": "1368:77:2",
+                    "src": "1368:78:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                       "typeString": "contract AggregatorV3Interface"
@@ -808,7 +793,7 @@
                   },
                   "id": 443,
                   "nodeType": "ExpressionStatement",
-                  "src": "1368:77:2"
+                  "src": "1368:78:2"
                 }
               ]
             },
@@ -832,7 +817,7 @@
               "src": "1358:0:2"
             },
             "scope": 468,
-            "src": "1337:115:2",
+            "src": "1337:116:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -841,7 +826,7 @@
             "body": {
               "id": 466,
               "nodeType": "Block",
-              "src": "1558:223:2",
+              "src": "1559:223:2",
               "statements": [
                 {
                   "assignments": [
@@ -858,7 +843,7 @@
                       "name": "roundID",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1582:14:2",
+                      "src": "1583:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -869,7 +854,7 @@
                         "id": 450,
                         "name": "uint80",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1582:6:2",
+                        "src": "1583:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint80",
                           "typeString": "uint80"
@@ -884,7 +869,7 @@
                       "name": "price",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1611:9:2",
+                      "src": "1612:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -895,7 +880,7 @@
                         "id": 452,
                         "name": "int",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1611:3:2",
+                        "src": "1612:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -910,7 +895,7 @@
                       "name": "startedAt",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1634:14:2",
+                      "src": "1635:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -921,7 +906,7 @@
                         "id": 454,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1634:4:2",
+                        "src": "1635:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -936,7 +921,7 @@
                       "name": "timeStamp",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1662:14:2",
+                      "src": "1663:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -947,7 +932,7 @@
                         "id": 456,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1662:4:2",
+                        "src": "1663:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -962,7 +947,7 @@
                       "name": "answeredInRound",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1690:22:2",
+                      "src": "1691:22:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -973,7 +958,7 @@
                         "id": 458,
                         "name": "uint80",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1690:6:2",
+                        "src": "1691:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint80",
                           "typeString": "uint80"
@@ -996,7 +981,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 435,
-                        "src": "1725:9:2",
+                        "src": "1726:9:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                           "typeString": "contract AggregatorV3Interface"
@@ -1010,7 +995,7 @@
                       "memberName": "latestRoundData",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 432,
-                      "src": "1725:25:2",
+                      "src": "1726:25:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
                         "typeString": "function () view external returns (uint80,int256,uint256,uint256,uint80)"
@@ -1024,14 +1009,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1725:27:2",
+                    "src": "1726:27:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
                       "typeString": "tuple(uint80,int256,uint256,uint256,uint80)"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1568:184:2"
+                  "src": "1569:184:2"
                 },
                 {
                   "expression": {
@@ -1041,7 +1026,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 453,
-                    "src": "1769:5:2",
+                    "src": "1770:5:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -1050,7 +1035,7 @@
                   "functionReturnParameters": 449,
                   "id": 465,
                   "nodeType": "Return",
-                  "src": "1762:12:2"
+                  "src": "1763:12:2"
                 }
               ]
             },
@@ -1065,7 +1050,7 @@
               "id": 446,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1529:2:2"
+              "src": "1530:2:2"
             },
             "returnParameters": {
               "id": 449,
@@ -1077,7 +1062,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 467,
-                  "src": "1553:3:2",
+                  "src": "1554:3:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1088,7 +1073,7 @@
                     "id": 447,
                     "name": "int",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1553:3:2",
+                    "src": "1554:3:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -1098,20 +1083,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1552:5:2"
+              "src": "1553:5:2"
             },
             "scope": 468,
-            "src": "1506:275:2",
+            "src": "1507:275:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 469,
-        "src": "1008:775:2"
+        "src": "1008:776:2"
       }
     ],
-    "src": "32:1752:2"
+    "src": "32:1753:2"
   },
   "legacyAST": {
     "absolutePath": "/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol",
@@ -1704,7 +1689,7 @@
             "body": {
               "id": 444,
               "nodeType": "Block",
-              "src": "1358:94:2",
+              "src": "1358:95:2",
               "statements": [
                 {
                   "expression": {
@@ -1734,7 +1719,7 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "hexValue": "307839333236424641303241444432333636623330626163423132353236304166363431303331333331",
+                          "hexValue": "307861373637663734353333314432363763373735313239374439383262303530633933393835363237",
                           "id": 440,
                           "isConstant": false,
                           "isLValue": false,
@@ -1742,13 +1727,13 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "1402:42:2",
+                          "src": "1403:42:2",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           },
-                          "value": "0x9326BFA02ADD2366b30bacB125260Af641031331"
+                          "value": "0xa767f745331D267c7751297D982b050c93985627"
                         }
                       ],
                       "expression": {
@@ -1777,13 +1762,13 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1380:65:2",
+                      "src": "1380:66:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
-                    "src": "1368:77:2",
+                    "src": "1368:78:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                       "typeString": "contract AggregatorV3Interface"
@@ -1791,7 +1776,7 @@
                   },
                   "id": 443,
                   "nodeType": "ExpressionStatement",
-                  "src": "1368:77:2"
+                  "src": "1368:78:2"
                 }
               ]
             },
@@ -1815,7 +1800,7 @@
               "src": "1358:0:2"
             },
             "scope": 468,
-            "src": "1337:115:2",
+            "src": "1337:116:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -1824,7 +1809,7 @@
             "body": {
               "id": 466,
               "nodeType": "Block",
-              "src": "1558:223:2",
+              "src": "1559:223:2",
               "statements": [
                 {
                   "assignments": [
@@ -1841,7 +1826,7 @@
                       "name": "roundID",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1582:14:2",
+                      "src": "1583:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1852,7 +1837,7 @@
                         "id": 450,
                         "name": "uint80",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1582:6:2",
+                        "src": "1583:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint80",
                           "typeString": "uint80"
@@ -1867,7 +1852,7 @@
                       "name": "price",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1611:9:2",
+                      "src": "1612:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1878,7 +1863,7 @@
                         "id": 452,
                         "name": "int",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1611:3:2",
+                        "src": "1612:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -1893,7 +1878,7 @@
                       "name": "startedAt",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1634:14:2",
+                      "src": "1635:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1904,7 +1889,7 @@
                         "id": 454,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1634:4:2",
+                        "src": "1635:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1919,7 +1904,7 @@
                       "name": "timeStamp",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1662:14:2",
+                      "src": "1663:14:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1930,7 +1915,7 @@
                         "id": 456,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1662:4:2",
+                        "src": "1663:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1945,7 +1930,7 @@
                       "name": "answeredInRound",
                       "nodeType": "VariableDeclaration",
                       "scope": 466,
-                      "src": "1690:22:2",
+                      "src": "1691:22:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1956,7 +1941,7 @@
                         "id": 458,
                         "name": "uint80",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1690:6:2",
+                        "src": "1691:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint80",
                           "typeString": "uint80"
@@ -1979,7 +1964,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 435,
-                        "src": "1725:9:2",
+                        "src": "1726:9:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_AggregatorV3Interface_$433",
                           "typeString": "contract AggregatorV3Interface"
@@ -1993,7 +1978,7 @@
                       "memberName": "latestRoundData",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 432,
-                      "src": "1725:25:2",
+                      "src": "1726:25:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
                         "typeString": "function () view external returns (uint80,int256,uint256,uint256,uint80)"
@@ -2007,14 +1992,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1725:27:2",
+                    "src": "1726:27:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
                       "typeString": "tuple(uint80,int256,uint256,uint256,uint80)"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1568:184:2"
+                  "src": "1569:184:2"
                 },
                 {
                   "expression": {
@@ -2024,7 +2009,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 453,
-                    "src": "1769:5:2",
+                    "src": "1770:5:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -2033,7 +2018,7 @@
                   "functionReturnParameters": 449,
                   "id": 465,
                   "nodeType": "Return",
-                  "src": "1762:12:2"
+                  "src": "1763:12:2"
                 }
               ]
             },
@@ -2048,7 +2033,7 @@
               "id": 446,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1529:2:2"
+              "src": "1530:2:2"
             },
             "returnParameters": {
               "id": 449,
@@ -2060,7 +2045,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 467,
-                  "src": "1553:3:2",
+                  "src": "1554:3:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2071,7 +2056,7 @@
                     "id": 447,
                     "name": "int",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1553:3:2",
+                    "src": "1554:3:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -2081,28 +2066,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1552:5:2"
+              "src": "1553:5:2"
             },
             "scope": 468,
-            "src": "1506:275:2",
+            "src": "1507:275:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 469,
-        "src": "1008:775:2"
+        "src": "1008:776:2"
       }
     ],
-    "src": "32:1752:2"
+    "src": "32:1753:2"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.23",
-  "updatedAt": "2022-01-18T01:03:52.116Z",
+  "schemaVersion": "3.0.2",
+  "updatedAt": "2022-06-06T23:27:29.263Z",
   "devdoc": {
     "methods": {}
   },
