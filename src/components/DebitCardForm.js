@@ -126,7 +126,7 @@ class DebitCardForm extends Component {
           <span className="float-right text-muted"></span>
         </div>
         <div className="mb-2">
-          <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-left"><b>Coinbase Ethereum Address</b> (for debit card) <font color="black"> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; (copy from <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">https://accounts.coinbase.com/profile/crypto-addresses</a>)</font></font>
+          <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-left"><b>Coinbase Ethereum Address</b> <font color="black"> <br></br> (copy from your <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">Coinbase address page</a>)</font></font>
           <input
             type="text"
             className="form-control form-control-lg"
