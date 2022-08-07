@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "79ee72db53acd2fe92ca",
+    "revision": "f13a7c71c210eaec7d6f",
     "url": "/ACashExchange/static/css/main.5ae1302f.chunk.css"
   },
   {
-    "revision": "79ee72db53acd2fe92ca",
-    "url": "/ACashExchange/static/js/main.79ee72db.chunk.js"
+    "revision": "f13a7c71c210eaec7d6f",
+    "url": "/ACashExchange/static/js/main.f13a7c71.chunk.js"
   },
   {
     "revision": "e74fce98f7cc8fc72dfb",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/ACashExchange/static/js/runtime~main.fa15b7e9.js"
   },
   {
-    "revision": "10992a08d94bbb4a73b91400a246e0c9",
+    "revision": "94b575063f7b821e6104b531008e23c1",
     "url": "/ACashExchange/index.html"
   }
 ];
