@@ -1,15 +1,13 @@
 {
-  "main.css": "/ACashExchange/static/css/main.5ae1302f.chunk.css",
-  "main.js": "/ACashExchange/static/js/main.f13a7c71.chunk.js",
-  "main.js.map": "/ACashExchange/static/js/main.f13a7c71.chunk.js.map",
-  "static/css/1.65b77f6f.chunk.css": "/ACashExchange/static/css/1.65b77f6f.chunk.css",
-  "static/js/1.e74fce98.chunk.js": "/ACashExchange/static/js/1.e74fce98.chunk.js",
-  "static/js/1.e74fce98.chunk.js.map": "/ACashExchange/static/js/1.e74fce98.chunk.js.map",
-  "runtime~main.js": "/ACashExchange/static/js/runtime~main.fa15b7e9.js",
-  "runtime~main.js.map": "/ACashExchange/static/js/runtime~main.fa15b7e9.js.map",
-  "static/css/main.5ae1302f.chunk.css.map": "/ACashExchange/static/css/main.5ae1302f.chunk.css.map",
-  "static/css/1.65b77f6f.chunk.css.map": "/ACashExchange/static/css/1.65b77f6f.chunk.css.map",
-  "index.html": "/ACashExchange/index.html",
-  "precache-manifest.b45f7b2d2839b4ca622829f8a32c5fb8.js": "/ACashExchange/precache-manifest.b45f7b2d2839b4ca622829f8a32c5fb8.js",
-  "service-worker.js": "/ACashExchange/service-worker.js"
+  "files": {
+    "main.css": "/ACashExchange/static/css/main.9c6ed233.css",
+    "main.js": "/ACashExchange/static/js/main.7c9fae4f.js",
+    "index.html": "/ACashExchange/index.html",
+    "main.9c6ed233.css.map": "/ACashExchange/static/css/main.9c6ed233.css.map",
+    "main.7c9fae4f.js.map": "/ACashExchange/static/js/main.7c9fae4f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c6ed233.css",
+    "static/js/main.7c9fae4f.js"
+  ]
 }
