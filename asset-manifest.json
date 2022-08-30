@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ACashExchange/static/css/main.9c6ed233.css",
-    "main.js": "/ACashExchange/static/js/main.7c9fae4f.js",
+    "main.js": "/ACashExchange/static/js/main.dd3aea8d.js",
     "index.html": "/ACashExchange/index.html",
     "main.9c6ed233.css.map": "/ACashExchange/static/css/main.9c6ed233.css.map",
-    "main.7c9fae4f.js.map": "/ACashExchange/static/js/main.7c9fae4f.js.map"
+    "main.dd3aea8d.js.map": "/ACashExchange/static/js/main.dd3aea8d.js.map"
   },
   "entrypoints": [
     "static/css/main.9c6ed233.css",
-    "static/js/main.7c9fae4f.js"
+    "static/js/main.dd3aea8d.js"
   ]
 }
