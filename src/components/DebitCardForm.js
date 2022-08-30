@@ -8,7 +8,7 @@ import "./App.css";
 
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],
-  network: "kovan", // or "ropsten" or "kovan"
+  network: "mainnet", // or "ropsten" or "kovan"
 });
 
 const showWallet = () => {
@@ -70,7 +70,7 @@ class DebitCardForm extends Component {
               /// const web3 = new Web3("https://mainnet.infura.io/v3/9f48ede626a6442c829095f80e483afa")
               const web3 = new Web3("https://rpc.gnosischain.com/")
               const aggregatorV3InterfaceABI = [{ "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "description", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint80", "name": "_roundId", "type": "uint80" }], "name": "getRoundData", "outputs": [{ "internalType": "uint80", "name": "roundId", "type": "uint80" }, { "internalType": "int256", "name": "answer", "type": "int256" }, { "internalType": "uint256", "name": "startedAt", "type": "uint256" }, { "internalType": "uint256", "name": "updatedAt", "type": "uint256" }, { "internalType": "uint80", "name": "answeredInRound", "type": "uint80" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "latestRoundData", "outputs": [{ "internalType": "uint80", "name": "roundId", "type": "uint80" }, { "internalType": "int256", "name": "answer", "type": "int256" }, { "internalType": "uint256", "name": "startedAt", "type": "uint256" }, { "internalType": "uint256", "name": "updatedAt", "type": "uint256" }, { "internalType": "uint80", "name": "answeredInRound", "type": "uint80" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "version", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }]
-              const addr = "0xa767f745331D267c7751297D982b050c93985627"
+              const addr = "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
               const priceFeed = new web3.eth.Contract(aggregatorV3InterfaceABI, addr)
               priceFeed.methods.latestRoundData().call()
                   .then((roundData) => {

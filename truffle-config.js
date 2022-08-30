@@ -39,7 +39,7 @@ module.exports = {
       provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY),
       network_id: 1,
       gas: 3000000,
-      gasPrice: 10000000000
+      gasPrice: 20000000000
     },
     xdai: {
           provider: function() {

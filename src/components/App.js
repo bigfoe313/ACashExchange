@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
 import Web3 from 'web3'
 import Token from '../abis/Token.json'
 import EthSwap from '../abis/EthSwap.json'
@@ -76,7 +81,7 @@ class App extends Component {
   }
 
   async loadWeb3() {
-/*
+
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
@@ -84,15 +89,15 @@ class App extends Component {
     else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
     }
-*/    
-//     else {
+    
+    else {
       // window.web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.infura.io/v3/9f48ede626a6442c829095f80e483afa'));
       // let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
       // window.web3 = new Web3(fm.getProvider());
 
       const magic = new Magic('pk_live_C69DC35AF77113D1', {
         extensions: [new ConnectExtension()],
-        network: "kovan", // or "ropsten" or "kovan"
+        network: "mainnet", // or "ropsten" or "kovan"
       });
 /*
       const customNodeOptions = {
@@ -104,9 +109,15 @@ class App extends Component {
         extensions: [new ConnectExtension()],
         network: customNodeOptions
       });
-*/
-      // magic.connect.showWallet()
 
+      const showWallet = () => {
+        magic.connect.showWallet().catch((e) => {
+          console.log(e);
+        });
+      };
+
+      magic.connect.showWallet()
+*/
       window.web3 = new Web3(magic.rpcProvider);
       window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
       // window.web3 = new web3Modal.connect(); 
@@ -144,7 +155,7 @@ class App extends Component {
       // window.web3.currentProvider.enable();    
       // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
 */
-    // }
+    }
   }
 
   buyTokens = (etherAmount) => {
@@ -205,6 +216,11 @@ debitTokens = (tokenAmount, _etherAddress) => {
           <div className="row">
             <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '600px' }}>
               <div className="content mr-auto ml-auto">
+
+                <Router>
+                  <Route path="/ACashExchange" element={<content />} />
+                </Router>
+
                 <a
                   href="http://www.dappuniversity.com/bootcamp"
                   target="_blank"

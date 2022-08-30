@@ -113,7 +113,7 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.5.0;\n\n///import \"https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\ninterface AggregatorV3Interface {\n\n  function decimals() external view returns (uint8);\n  function description() external view returns (string memory);\n  function version() external view returns (uint256);\n\n  // getRoundData and latestRoundData should both raise \"No data present\"\n  // if they do not have data to report, instead of returning unset values\n  // which could be misinterpreted as actual reported values.\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n}\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419\n     */\n    /**\n     * Network: Kovan\n     * Aggregator: ETH/USD\n     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\n     */\n    constructor() public {\n        priceFeed = AggregatorV3Interface(\t0xa767f745331D267c7751297D982b050c93985627);\n    }\n\n    /**\n     * Returns the latest price\n     */\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.5.0;\n\n///import \"https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\ninterface AggregatorV3Interface {\n\n  function decimals() external view returns (uint8);\n  function description() external view returns (string memory);\n  function version() external view returns (uint256);\n\n  // getRoundData and latestRoundData should both raise \"No data present\"\n  // if they do not have data to report, instead of returning unset values\n  // which could be misinterpreted as actual reported values.\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n}\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419\n     */\n    /**\n     * Network: Kovan\n     * Aggregator: ETH/USD\n     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\n     */\n    constructor() public {\n        priceFeed = AggregatorV3Interface(\t0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419);\n    }\n\n    /**\n     * Returns the latest price\n     */\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n",
   "sourcePath": "/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol",
   "ast": {
     "absolutePath": "/home/aforbers/AfricanaSwap/bigfoe313.github.io/src/contracts/PriceConsumerV3.sol",
@@ -736,7 +736,7 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "hexValue": "307861373637663734353333314432363763373735313239374439383262303530633933393835363237",
+                          "hexValue": "307835663465433344663963626434333731344645323734306635453336313631353563356238343139",
                           "id": 440,
                           "isConstant": false,
                           "isLValue": false,
@@ -750,7 +750,7 @@
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           },
-                          "value": "0xa767f745331D267c7751297D982b050c93985627"
+                          "value": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
                         }
                       ],
                       "expression": {
@@ -1719,7 +1719,7 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "hexValue": "307861373637663734353333314432363763373735313239374439383262303530633933393835363237",
+                          "hexValue": "307835663465433344663963626434333731344645323734306635453336313631353563356238343139",
                           "id": 440,
                           "isConstant": false,
                           "isLValue": false,
@@ -1733,7 +1733,7 @@
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           },
-                          "value": "0xa767f745331D267c7751297D982b050c93985627"
+                          "value": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
                         }
                       ],
                       "expression": {
@@ -2087,7 +2087,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.2",
-  "updatedAt": "2022-06-06T23:27:29.263Z",
+  "updatedAt": "2022-08-10T22:07:10.804Z",
   "devdoc": {
     "methods": {}
   },
