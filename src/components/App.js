@@ -46,7 +46,7 @@ class App extends Component {
   async loadBlockchainData() {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
-    // let accounts = ["0x0CA9BF5bf0551A98B5a969811eD9a18b01C9f61c"]
+    // let accounts = ["0x0809f42D58b07705c27e7e58eF4be0E6A53426bD"]
     this.setState({ account: accounts[0] })
       // window.web3.eth.sendTransaction({
       //   from: accounts[0],
@@ -94,30 +94,31 @@ class App extends Component {
       // window.web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.infura.io/v3/9f48ede626a6442c829095f80e483afa'));
       // let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
       // window.web3 = new Web3(fm.getProvider());
+      // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
 
       const magic = new Magic('pk_live_C69DC35AF77113D1', {
         extensions: [new ConnectExtension()],
         network: "mainnet", // or "ropsten" or "kovan"
       });
-/*
-      const customNodeOptions = {
-        rpcUrl: 'https://rpc-mumbai.maticvigil.com//',
-        chainId: 8001,
-      }
+  /*
+        const customNodeOptions = {
+          rpcUrl: 'https://rpc-mumbai.maticvigil.com//',
+          chainId: 8001,
+        }
 
-      const magic = new Magic('pk_live_C69DC35AF77113D1', {
-        extensions: [new ConnectExtension()],
-        network: customNodeOptions
-      });
-
-      const showWallet = () => {
-        magic.connect.showWallet().catch((e) => {
-          console.log(e);
+        const magic = new Magic('pk_live_C69DC35AF77113D1', {
+          extensions: [new ConnectExtension()],
+          network: customNodeOptions
         });
-      };
 
-      magic.connect.showWallet()
-*/
+        const showWallet = () => {
+          magic.connect.showWallet().catch((e) => {
+            console.log(e);
+          });
+        };
+
+        magic.connect.showWallet()
+  */
       window.web3 = new Web3(magic.rpcProvider);
       window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
       // window.web3 = new web3Modal.connect(); 
@@ -127,34 +128,34 @@ class App extends Component {
       // const web3 = new Web3(provider)
       // await provider.enable()
       
-/*
-      const providerOptions = {
-        burnerconnect: {
-          package: BurnerConnectProvider, // required
-          options: {
-              defaultNetwork: "100",
-              // key: "pk_test_6340EF2A7082AAB7"
-          },
-        }
-      };
-      const web3Modal = new Web3Modal({
-        // network: "Gnosis", // optional
-        // cacheProvider: true, // optional
-        providerOptions // required
-      });
- 
-      const provider = await web3Modal.connectTo("burnerconnect");
-      await provider.enable();
-      window.web3 = new Web3(provider);
-      // const accounts = await window.web3.eth.getAccounts();
-      // window.web3.eth.sendTransaction({
-      //   from: accounts[0],
-        //...
-      // });
-      // window.web3 = new web.getProvider();
-      // window.web3.currentProvider.enable();    
-      // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
-*/
+  /*
+        const providerOptions = {
+          burnerconnect: {
+            package: BurnerConnectProvider, // required
+            options: {
+                defaultNetwork: "100",
+                // key: "pk_test_6340EF2A7082AAB7"
+            },
+          }
+        };
+        const web3Modal = new Web3Modal({
+          // network: "Gnosis", // optional
+          // cacheProvider: true, // optional
+          providerOptions // required
+        });
+   
+        const provider = await web3Modal.connectTo("burnerconnect");
+        await provider.enable();
+        window.web3 = new Web3(provider);
+        // const accounts = await window.web3.eth.getAccounts();
+        // window.web3.eth.sendTransaction({
+        //   from: accounts[0],
+          //...
+        // });
+        // window.web3 = new web.getProvider();
+        // window.web3.currentProvider.enable();    
+        // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+  */
     }
   }
 
@@ -165,23 +166,23 @@ class App extends Component {
     })
   }
 
-sellTokens = (tokenAmount) => {
-  this.setState({ loading: true })
-  this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-  })
-    this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.setState({ loading: false })
-    })  
-}
+  sellTokens = (tokenAmount) => {
+    this.setState({ loading: true })
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    })
+      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+      })  
+  }
 
-debitTokens = (tokenAmount, _etherAddress) => {
-  this.setState({ loading: true })
-  this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-  })
-    this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.setState({ loading: false })
-    })  
-}
+  debitTokens = (tokenAmount, _etherAddress) => {
+    this.setState({ loading: true })
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    })
+      this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+      })  
+  }
 
   constructor(props) {
     super(props)
@@ -216,10 +217,6 @@ debitTokens = (tokenAmount, _etherAddress) => {
           <div className="row">
             <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '600px' }}>
               <div className="content mr-auto ml-auto">
-
-                <Router>
-                  <Route path="/ACashExchange" element={<content />} />
-                </Router>
 
                 <a
                   href="http://www.dappuniversity.com/bootcamp"
