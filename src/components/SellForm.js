@@ -4,6 +4,7 @@ import ethLogo from '../eth-logo.png'
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.css'
 
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],

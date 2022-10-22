@@ -10,6 +10,7 @@ import EthSwap from '../abis/EthSwap.json'
 import Navbar from './Navbar'
 import Main from './Main'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css'
 // import Fortmatic from 'fortmatic';
 // import Authereum from 'authereum'
 import Web3Modal from "web3modal";
