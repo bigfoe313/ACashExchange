@@ -3,8 +3,8 @@ import tokenLogo from '../token-logo.png'
 import ethLogo from '../eth-logo.png'
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
-import "./App.css";
-import 'bootstrap/dist/css/bootstrap.css'
+// import "./App.css";
+// import 'bootstrap/dist/css/bootstrap.css'
 
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],
@@ -53,13 +53,13 @@ class BuyForm extends Component {
 
         }}>
         <div style={{textAlign:"center"}}>
-          <font color="red" className="float-left"><b>Pay</b></font>
+          <font color="red" className="float-start"><b>Pay</b></font>
 
           <a href="#" onClick={showWallet} className="walletlink" >
             Wallet
           </a>
 
-          <span className="float-right text-muted">
+          <span className="float-end text-muted">
             Balance: {(Math.round(10000000*window.web3.utils.fromWei(this.props.ethBalance, 'Ether'))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})}
           </span>
         </div>
@@ -80,8 +80,8 @@ class BuyForm extends Component {
                     this.setState({
                       output: (Math.round(100 * (etherAmount * roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2})
                     })
-                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = '1 ETH = ' + (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH'
-                    document.getElementsByClassName('float-left text-muted')[0].innerHTML = 'Exchange Rate'
+                    document.getElementsByClassName('float-end text-muted')[2].innerHTML = '1 ETH = ' + (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH'
+                    document.getElementsByClassName('float-start text-muted')[0].innerHTML = 'Exchange Rate'
                   })
             }}
             ref={(input) => { this.input = input }}
@@ -97,8 +97,8 @@ class BuyForm extends Component {
           </div>
         </div>
         <div>
-          <label className="float-left"><b>Receive</b> (1 A-CASH = $1)</label>
-          <span className="float-right text-muted">
+          <label className="float-start"><b>Receive</b> (1 A-CASH = $1)</label>
+          <span className="float-end text-muted">
             Balance: {(Math.round(100*window.web3.utils.fromWei(this.props.tokenBalance, 'Ether'))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2})}
           </span>
         </div>
@@ -118,8 +118,8 @@ class BuyForm extends Component {
           </div>
         </div>
         <div className="mb-5">
-          <span className="float-left text-muted"></span>
-          <span className="float-right text-muted"></span>
+          <span className="float-start text-muted"></span>
+          <span className="float-end text-muted"></span>
         </div>
         <button type="submit" className="btn btn-primary btn-block btn-lg">SWAP</button>
         <p> </p>

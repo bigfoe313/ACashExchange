@@ -57,8 +57,8 @@ class DebitCardForm extends Component {
           /// return false;          
       }}>
         <div>
-          <font color="red" className="float-left"><b>Pay</b><font color="black"> (5 A-CASH Min.)</font></font>
-          <span className="float-right text-muted">
+          <font color="red" className="float-start"><b>Pay</b><font color="black"> (5 A-CASH Min.)</font></font>
+          <span className="float-end text-muted">
             Balance: {(Math.round(100*window.web3.utils.fromWei(this.props.tokenBalance, 'Ether'))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2})}
           </span>
         </div>
@@ -78,8 +78,8 @@ class DebitCardForm extends Component {
                     this.setState({
                       output: (Math.round(10000000 * (tokenAmount / (roundData[1] / 10 ** 8)))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})
                     })
-                    document.getElementsByClassName('float-right text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH = 1 ETH'
-                    document.getElementsByClassName('float-left text-muted')[0].innerHTML = 'Exchange Rate'
+                    document.getElementsByClassName('float-end text-muted')[2].innerHTML = (Math.round(100 * (roundData[1] / 10 ** 8))/100).toLocaleString(undefined,{'minimumFractionDigits':2,'maximumFractionDigits':2}) + ' A-CASH = 1 ETH'
+                    document.getElementsByClassName('float-start text-muted')[0].innerHTML = 'Exchange Rate'
                   })
             }}
             ref={(input) => { this.input = input }}
@@ -96,14 +96,14 @@ class DebitCardForm extends Component {
           </div>
         </div>
         <div style={{textAlign:"center"}}>
-          <label className="float-left"><b>Receive</b>
+          <label className="float-start"><b>Receive</b>
           </label>
 
           <a href="#" onClick={showWallet} className="walletlink" >
             Wallet
           </a>
           
-          <span className="float-right text-muted">
+          <span className="float-end text-muted">
             Balance: {(Math.round(10000000*window.web3.utils.fromWei(this.props.ethBalance, 'Ether'))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})}
           </span>
         </div>
@@ -123,11 +123,11 @@ class DebitCardForm extends Component {
           </div>
         </div>
         <div className="mb-5">
-          <span className="float-left text-muted"></span>
-          <span className="float-right text-muted"></span>
+          <span className="float-start text-muted"></span>
+          <span className="float-end text-muted"></span>
         </div>
         <div className="mb-2">
-          <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-left"><b>Coinbase Ethereum Address</b> <font color="black"> <br></br> copy from your <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">Coinbase address page</a></font></font>
+          <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-start"><b>Coinbase Ethereum Address</b> <font color="black"> <br></br> copy from your <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">Coinbase address page</a></font></font>
           <input
             type="text"
             className="form-control form-control-lg"
