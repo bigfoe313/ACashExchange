@@ -121,9 +121,11 @@ class BuyForm extends Component {
           <span className="float-start text-muted"></span>
           <span className="float-end text-muted"></span>
         </div>
-        <button type="submit" className="btn btn-primary btn-block btn-lg">SWAP</button>
+        <div class="d-grid">
+          <button type="submit" className="btn btn-primary btn-block btn-lg">SWAP</button>
+        </div>
         <p> </p>
-        <center><span>Wallet Address:</span> <input type="text" id="myInput" style={{width:90}} value={document.getElementsByClassName('nav-item text-nowrap d-none d-sm-none d-sm-block')[0].innerText.substring(0, 8) + '...'} />
+        <center><span>Wallet Address:</span> <input type="text" id="myInput" style={{width:90}} value={document.getElementsByClassName('nav-item text-nowrap d-none d-sm-none d-sm-block')[0].innerText.substring(0, 4) + '...' + document.getElementsByClassName('nav-item text-nowrap d-none d-sm-none d-sm-block')[0].innerText.substring(38, 42)} />
         <button
               onClick={(event) => {
                    /* Copy the text inside the account field */

@@ -136,7 +136,9 @@ class DebitCardForm extends Component {
             /// value={this.state.output2}
           />
         </div>
-        <button type="submit" className="btn btn-primary btn-block btn-lg">GET CARD</button>
+        <div class="d-grid">
+          <button type="submit" className="btn btn-primary btn-block btn-lg">GET CARD</button>
+        </div>
         <p> </p>
         <center><p>Use A-CASH debit card online!</p></center>
         <center><p><a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com">Amazon</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.CVS.com">CVS</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.Kroger.com">Kroger</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.DollarGeneral.com">Dollar General</a></p></center>
