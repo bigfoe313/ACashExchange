@@ -141,7 +141,7 @@ class DebitCardForm extends Component {
         </div>
         <p> </p>
         <center><p>Use A-CASH debit card online!</p></center>
-        <center><p><a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com">Amazon</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.CVS.com">CVS</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.Kroger.com">Kroger</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.DollarGeneral.com">Dollar General</a></p></center>
+        <center><p><a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com">Amazon</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.CVS.com">CVS</a> &emsp; <a target="_blank" rel="noopener noreferrer" href="https://www.Kroger.com">Kroger</a> <br></br> <a target="_blank" rel="noopener noreferrer" href="https://www.DollarGeneral.com">Dollar General</a></p></center>
       </form>
     );
   }

@@ -3,6 +3,8 @@ import tokenLogo from '../token-logo.png'
 import ethLogo from '../eth-logo.png'
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
+import Web3 from "web3";
+import { useState } from "react";
 // import "./App.css";
 // import 'bootstrap/dist/css/bootstrap.css'
 
