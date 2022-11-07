@@ -57,9 +57,11 @@ class BuyForm extends Component {
         <div style={{textAlign:"center"}}>
           <font color="red" className="float-start"><b>Pay</b></font>
 
-          <a href="#" onClick={showWallet} className="walletlink" >
-            Wallet
-          </a>
+          { !window.ethereum &&
+            <a href="#" onClick={showWallet} className="walletlink" >
+              Wallet
+            </a>
+          }
 
           <span className="float-end text-muted">
             Balance: {(Math.round(10000000*window.web3.utils.fromWei(this.props.ethBalance, 'Ether'))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})}

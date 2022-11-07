@@ -99,9 +99,11 @@ class DebitCardForm extends Component {
           <label className="float-start"><b>Receive</b>
           </label>
 
-          <a href="#" onClick={showWallet} className="walletlink" >
-            Wallet
-          </a>
+          { !window.ethereum &&
+            <a href="#" onClick={showWallet} className="walletlink" >
+              Wallet
+            </a>
+          }
           
           <span className="float-end text-muted">
             Balance: {(Math.round(10000000*window.web3.utils.fromWei(this.props.ethBalance, 'Ether'))/10000000).toLocaleString(undefined,{'minimumFractionDigits':7,'maximumFractionDigits':7})}
