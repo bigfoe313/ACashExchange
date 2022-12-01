@@ -47,7 +47,7 @@ class DebitCardForm extends Component {
           this.props.debitTokens(tokenAmount, address)
           /// )
 
-          var moon = window.open("https://paywithmoon.com/dashboard");
+          var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
           moon.focus()
 
           window.onfocus = () => {
