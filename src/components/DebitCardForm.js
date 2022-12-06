@@ -18,6 +18,14 @@ const showWallet = () => {
   });
 };
 
+/*
+// When the user clicks on <span> (x), close the modal
+const span = () => {
+  document.getElementById("myModal").style.display = "none".catch((e) => {
+    console.log(e);
+  });
+};
+*/
 
 class DebitCardForm extends Component {
   constructor(props) {
@@ -47,15 +55,40 @@ class DebitCardForm extends Component {
           this.props.debitTokens(tokenAmount, address)
           /// )
 
-          var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
-          moon.focus()
-
+          /// document.getElementById("myModal").style.display = "block";
+          /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
+          /// moon.focus()
+/*
+          var isEighteen = window.confirm("Click Ok If Over 18");
+          if (isEighteen) { // if they clicked "ok"
+            window.open("https://paywithmoon.com/dashboard", "noreferrer")
+          }
+*/
           window.onfocus = () => {
+              /// this.props.debitTokens(tokenAmount, address)
+              var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+              if (notice) { // if they clicked "ok"
+              window.open("https://paywithmoon.com/dashboard", "noreferrer");
+
+              ///   window.open("https://paywithmoon.com/dashboard", "noreferrer").alert("test test test")
+              }
               window.location.reload();
-          }          
+              /// document.getElementById("myModal").style.display = "block";
+          }   
+
           /// window.open("https://accounts.coinbase.com/profile/crypto-addresses",'targetWindow',"toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=350,height=250");
           /// return false;          
       }}>
+
+        <div id="myModal" className="modal">
+
+          <div className="modal-content">
+            <span className="close">&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+
+        </div>
+
         <div>
           <font color="red" className="float-start"><b>Pay</b><font color="black"> (5 A-CASH Min.)</font></font>
           <span className="float-end text-muted">
