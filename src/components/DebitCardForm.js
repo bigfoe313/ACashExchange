@@ -65,10 +65,10 @@ class DebitCardForm extends Component {
           }
 */
           window.onfocus = () => {
-              /// this.props.debitTokens(tokenAmount, address)
+              /// this.props.debitTokens(tokenAmount, address);
               var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
               if (notice) { // if they clicked "ok"
-              window.open("https://paywithmoon.com/dashboard", "noreferrer");
+                window.open("https://paywithmoon.com/dashboard", "noreferrer");
 
               ///   window.open("https://paywithmoon.com/dashboard", "noreferrer").alert("test test test")
               }
