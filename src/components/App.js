@@ -169,25 +169,53 @@ class App extends Component {
 
   sellTokens = (tokenAmount) => {
     this.setState({ loading: true })
-    // this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    // })
-    this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.setState({ loading: false })
-    })  
-    // this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    // })
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    })
+
+      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+      })  
+
   }
 
   debitTokens = (tokenAmount, _etherAddress) => {
+
     this.setState({ loading: true })
-    // this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    // })
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    })
+
     this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
       this.setState({ loading: false })
-    })  
-    // this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    // })
+      window.location.reload()
+      })
+
+/*
+    window.onfocus = () => {
+      if (!this.setState()) {
+        this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.setState({ loading: false })
+        })
+      }
+      if (this.setState()) {
+        window.location.reload()
+      }
+    }
+*/
+/*
+    window.onfocus = () => {
+      if (!this.setState()) {
+        this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.setState({ loading: false })
+        })
+      } else {
+        if (this.setState()) {
+          window.location.reload()
+        }
+      }
+    }
+*/
   }
+
 
   constructor(props) {
     super(props)

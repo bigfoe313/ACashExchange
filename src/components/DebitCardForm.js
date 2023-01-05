@@ -18,14 +18,15 @@ const showWallet = () => {
   });
 };
 
-/*
+
 // When the user clicks on <span> (x), close the modal
-const span = () => {
-  document.getElementById("myModal").style.display = "none".catch((e) => {
-    console.log(e);
-  });
-};
-*/
+// const modal = () => {document.getElementById("myModal")};
+// var span = document.getElementsByClassName("close")[0];
+
+const spanFunction = () => {
+  document.getElementById("myModal").style.display = "none";
+}
+
 
 class DebitCardForm extends Component {
   constructor(props) {
@@ -44,6 +45,14 @@ class DebitCardForm extends Component {
           let address
           tokenAmount = document.getElementsByClassName('form-control form-control-lg')[0].value.toString()
           tokenAmount = window.web3.utils.toWei(tokenAmount, 'Ether')
+
+          let etherAmount
+          etherAmount = this.input.value.toString()
+          etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
+
+          let counter
+          counter = 1
+
           /// const Web3 = require("web3") // for nodejs only
           /// const web3 = new Web3("https://mainnet.infura.io/v3/9f48ede626a6442c829095f80e483afa")
           address = document.getElementsByClassName('form-control-lg')[2].value.toString()
@@ -52,8 +61,88 @@ class DebitCardForm extends Component {
           /// const ethSwap = new web3.eth.Contract(EthSwap.abi, addr)
           /// ethSwap.methods.debitTokens(tokenAmount, "0xc8a386275D36bd4a408f894C9590a1E5B2508292").send({ from:"0x2Bb0223dA754195F6f40fa880a94F14a86C30fC9" })
           /// .then(
+          /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
+          /// moon.focus()
+          /// this.props.sellTokens(etherAmount)
+          /// window.onload = this.props.debitTokens(tokenAmount, address);
+          /// document.getElementById("myModal").style.display = "inline-block";
           this.props.debitTokens(tokenAmount, address)
-          /// )
+          /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
+          /// moon.focus()
+/*
+          var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+          if (notice) { // if they clicked "ok"
+            counter = 2
+            this.props.debitTokens(tokenAmount, address)
+            var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
+            moon.focus()
+          }
+*/
+          //   this.props.debitTokens(tokenAmount, address)
+/*
+          async function myFunction(tokenAmount, address) {
+            return new Promise((resolve, reject) => {
+              this.props.debitTokens(tokenAmount, address);
+              resolve();
+            });
+          }
+
+          myFunction()
+            .then(() => {
+              window.location.reload();
+            })
+            .catch(error => {
+              // handle error
+            });
+*/
+/*
+            window.onfocus = () => {
+              /// this.props.sellTokens(etherAmount);
+              /// this.props.debitTokens(tokenAmount, address);
+                /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
+                /// moon.focus()
+              window.location.reload();
+            }
+*/            
+/*
+          window.onfocus = () => {
+            counter = counter + 1
+            /// this.props.debitTokens(tokenAmount, address);
+            /// alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+            if (counter === 2) {
+              async function callWeb3FunctionAndReload() {
+                // Call the web3 function here
+                await this.props.debitTokens(tokenAmount, address);
+
+                // Reload the page once the function has completed
+                window.location.reload();
+              }
+              /// alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+            } else {
+              window.location.reload();
+            }
+
+            var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+            if (notice) { // if they clicked "ok"
+              this.props.debitTokens(tokenAmount, address);
+              alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+            }
+
+          }
+*/
+/*
+              var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+              if (notice) { // if they clicked "ok"
+                window.open("https://paywithmoon.com/dashboard", "noreferrer");
+                window.location.reload();
+              }
+*/
+                        /// if (1 == 1) {
+              /// alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+            /// } else {
+              /// window.location.reload();
+            /// }
+          /// }
 
           /// document.getElementById("myModal").style.display = "block";
           /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
@@ -64,17 +153,20 @@ class DebitCardForm extends Component {
             window.open("https://paywithmoon.com/dashboard", "noreferrer")
           }
 */
-          window.onfocus = () => {
+          /// window.onfocus = () => {
+              /// this.props.debitTokens(tokenAmount, address)
+              /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer").alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
+              /// moon.focus().alert("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
               /// this.props.debitTokens(tokenAmount, address);
+/*
               var notice = window.confirm("Click Ok and go to paywithmoon.com/dashboard to create debit card after confirmation of transfer from coinbase.com (may take a few minutes)");
               if (notice) { // if they clicked "ok"
-                window.open("https://paywithmoon.com/dashboard", "noreferrer");
-
-              ///   window.open("https://paywithmoon.com/dashboard", "noreferrer").alert("test test test")
-              }
-              window.location.reload();
+                window.open("https://paywithmoon.com/dashboard", "noreferrer").focus();
+              } else {window.location.reload();}
+*/
+          ///     window.location.reload();
               /// document.getElementById("myModal").style.display = "block";
-          }   
+          /// }   
 
           /// window.open("https://accounts.coinbase.com/profile/crypto-addresses",'targetWindow',"toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=350,height=250");
           /// return false;          
@@ -83,8 +175,7 @@ class DebitCardForm extends Component {
         <div id="myModal" className="modal">
 
           <div className="modal-content">
-            <span className="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <p><font color="black"> <br></br> Click GET CARD button after entering A-Cash debit card amount and Coinbase Ethereum address. Go to <a target="_blank" rel="noopener noreferrer" href="https://paywithmoon.com/dashboard">paywithmoon.com</a> to create debit card after email confirmation of transfer from Coinbase (may take a few minutes).</font><span onClick={spanFunction} className="close">&times;</span></p>
           </div>
 
         </div>
@@ -165,6 +256,9 @@ class DebitCardForm extends Component {
           <font color="red" title="Coinbase account connected to paywithmoon.com required for debit card" className="float-start"><b>Coinbase Ethereum Address</b> <font color="black"> <br></br> copy from your <a target="_blank" rel="noopener noreferrer" href="https://accounts.coinbase.com/profile/crypto-addresses">Coinbase address page</a></font></font>
           <input
             type="text"
+            onChange={(event) => {
+              document.getElementById("myModal").style.display = "inline-block";
+            }}
             className="form-control form-control-lg"
             placeholder="0x..."
             required

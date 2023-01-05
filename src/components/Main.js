@@ -32,6 +32,7 @@ class Main extends Component {
         ethBalance={this.props.ethBalance}
         tokenBalance={this.props.tokenBalance}
         debitTokens={this.props.debitTokens}
+        sellTokens={this.props.sellTokens}
       />
     }}
 

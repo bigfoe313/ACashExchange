@@ -18,7 +18,7 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 5%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -32,9 +32,9 @@
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
 }
 
 /* The Close Button */
