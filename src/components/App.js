@@ -87,6 +87,7 @@ class App extends Component {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
     }
+
     else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
     }
@@ -101,6 +102,9 @@ class App extends Component {
         extensions: [new ConnectExtension()],
         network: "mainnet", // or "ropsten" or "kovan"
       });
+
+      window.web3 = new Web3(magic.rpcProvider)
+      
   /*
         const customNodeOptions = {
           rpcUrl: 'https://rpc-mumbai.maticvigil.com//',

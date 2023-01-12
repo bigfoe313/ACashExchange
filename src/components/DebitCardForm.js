@@ -6,6 +6,8 @@ import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css'
+import Web3 from "web3";
+import { useState } from "react";
 
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],
@@ -27,6 +29,19 @@ const spanFunction = () => {
   document.getElementById("myModal").style.display = "none";
 }
 
+const login = async () => {
+  const web3 = new Web3(magic.rpcProvider);
+  const accounts = await web3.eth.getAccounts()
+  web3.eth
+    .getAccounts()
+    .then((accounts) => {
+      window.web3 = new Web3(magic.rpcProvider);
+      window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 class DebitCardForm extends Component {
   constructor(props) {
@@ -66,6 +81,8 @@ class DebitCardForm extends Component {
           /// this.props.sellTokens(etherAmount)
           /// window.onload = this.props.debitTokens(tokenAmount, address);
           /// document.getElementById("myModal").style.display = "inline-block";
+          window.web3 = new Web3(magic.rpcProvider);
+          window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
           this.props.debitTokens(tokenAmount, address)
           /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
           /// moon.focus()
