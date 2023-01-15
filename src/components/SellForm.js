@@ -5,6 +5,7 @@ import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css'
+import Web3 from "web3";
 
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],
@@ -32,10 +33,17 @@ class SellForm extends Component {
           let etherAmount
           etherAmount = this.input.value.toString()
           etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
+
+          magic.connect.disconnect().catch((e) => console.log(e));
+          window.web3 = new Web3(magic.rpcProvider);
+          window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+          
           this.props.sellTokens(etherAmount)
+/*
           window.onfocus = () => {
               window.location.reload();
-          }          
+          }
+*/
         }}>
         <div>
           <font color="red" className="float-start"><b>Pay</b><font color="black"> (1 A-CASH = $1)</font></font>

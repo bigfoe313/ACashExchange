@@ -47,12 +47,17 @@ class BuyForm extends Component {
           let etherAmount
           etherAmount = this.input.value.toString()
           etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
-          this.props.buyTokens(etherAmount)
 
+          magic.connect.disconnect().catch((e) => console.log(e));
+          window.web3 = new Web3(magic.rpcProvider);
+          window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+          
+          this.props.buyTokens(etherAmount)
+/*
           window.onfocus = () => {
               window.location.reload();
           }
-
+*/
         }}>
         <div style={{textAlign:"center"}}>
           <font color="red" className="float-start"><b>Pay</b></font>

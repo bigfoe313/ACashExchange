@@ -81,8 +81,11 @@ class DebitCardForm extends Component {
           /// this.props.sellTokens(etherAmount)
           /// window.onload = this.props.debitTokens(tokenAmount, address);
           /// document.getElementById("myModal").style.display = "inline-block";
+
+          magic.connect.disconnect().catch((e) => console.log(e));
           window.web3 = new Web3(magic.rpcProvider);
           window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+          
           this.props.debitTokens(tokenAmount, address)
           /// var moon = window.open("https://paywithmoon.com/dashboard", "noreferrer");
           /// moon.focus()
