@@ -195,7 +195,7 @@ class DebitCardForm extends Component {
         <div id="myModal" className="modal">
 
           <div className="modal-content">
-            <p><font color="black"> <br></br> Click GET CARD button after entering A-Cash debit card amount and Coinbase Ethereum address. Go to <a target="_blank" rel="noopener noreferrer" href="https://paywithmoon.com/dashboard">paywithmoon.com</a> to create debit card after email confirmation of transfer from Coinbase (may take a few minutes).</font><span onClick={spanFunction} className="close">&times;</span></p>
+            <p><font color="black"> <br></br> Click GET CARD button after entering A-Cash debit card amount and Coinbase Ethereum address. Go to <a target="_blank" rel="noopener noreferrer" href="https://paywithmoon.com/dashboard">paywithmoon.com</a> to create debit card after email confirmation of transfer from Coinbase (will take about 5 minutes).</font><span onClick={spanFunction} className="close">&times;</span></p>
           </div>
 
         </div>

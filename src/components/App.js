@@ -177,13 +177,13 @@ class App extends Component {
     ///this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
       this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
     })
-
+  setTimeout(() => {
       ///this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
       this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
         this.setState({ loading: false })
         window.location.reload()
       })  
-
+  }, 5000); // delay of 5 seconds
   }
 
   debitTokens = (tokenAmount, _etherAddress) => {
@@ -192,13 +192,13 @@ class App extends Component {
     ///this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
     this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
     })
-
-    ///this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.setState({ loading: false })
-      window.location.reload()
-      })
-
+    setTimeout(() => {
+      ///this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+        window.location.reload()
+        })
+    }, 5000); // delay of 5 seconds
 /*
     window.onfocus = () => {
       if (!this.setState()) {
