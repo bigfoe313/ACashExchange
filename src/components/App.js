@@ -183,7 +183,7 @@ class App extends Component {
         this.setState({ loading: false })
         window.location.reload()
       })  
-  }, 5000); // delay of 5 seconds
+  }, 7000); // delay of 7 seconds
   }
 
   debitTokens = (tokenAmount, _etherAddress) => {
@@ -198,7 +198,7 @@ class App extends Component {
         this.setState({ loading: false })
         window.location.reload()
         })
-    }, 5000); // delay of 5 seconds
+    }, 7000); // delay of 7 seconds
 /*
     window.onfocus = () => {
       if (!this.setState()) {
