@@ -85,7 +85,8 @@ class App extends Component {
 
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
-      await window.ethereum.enable()
+      await window.ethereum.send('eth_requestAccounts');
+      // await window.ethereum.enable()
     }
 
     else if (window.web3) {
@@ -189,10 +190,26 @@ class App extends Component {
   debitTokens = (tokenAmount, _etherAddress) => {
 
     this.setState({ loading: true })
+    let payload = {
+      jsonrpc: "2.0",
+      id: 123,
+      method: "update",
+      params: [1,2,3]
+    };
+
+    payload = {};
     ///this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
     this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
     })
     setTimeout(() => {
+      let payload = {
+        jsonrpc: "2.0",
+        id: 123,
+        method: "update",
+        params: [1,2,3]
+      };
+
+      payload = {};
       ///this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
       this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
         this.setState({ loading: false })
