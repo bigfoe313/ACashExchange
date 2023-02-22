@@ -104,7 +104,7 @@ class App extends Component {
         network: "mainnet", // or "ropsten" or "kovan"
       });
 
-      window.web3 = new Web3(magic.rpcProvider)
+      // window.web3 = new Web3(magic.rpcProvider)
       
   /*
         const customNodeOptions = {
