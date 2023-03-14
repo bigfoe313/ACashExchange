@@ -47,7 +47,7 @@ class Main extends Component {
             >
             Buy<br />A-CASH
           </button>
-          <button
+          <button hidden
               className={this.state.currentForm === "debitcard" ? "btn btn-primary" : "btn btn-light" }
               title="Requires Coinbase account connected to paywithmoon.com"
               onClick={(event) => {
