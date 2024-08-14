@@ -48,9 +48,9 @@ class BuyForm extends Component {
           etherAmount = this.input.value.toString()
           etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
 
-          magic.connect.disconnect().catch((e) => console.log(e));
-          window.web3 = new Web3(magic.rpcProvider);
-          window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+          //magic.connect.disconnect().catch((e) => console.log(e));
+          //window.web3 = new Web3(magic.rpcProvider);
+          //window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
           
           this.props.buyTokens(etherAmount)
 /*

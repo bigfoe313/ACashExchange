@@ -97,14 +97,14 @@ class App extends Component {
       // window.web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.infura.io/v3/9f48ede626a6442c829095f80e483afa'));
       // let fm = new Fortmatic('pk_test_6340EF2A7082AAB7', 'kovan');
       // window.web3 = new Web3(fm.getProvider());
-      // window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
-
+      window.alert('Non-Ethereum browser detected. You should consider trying MetaMask wallet!')
+    /*
       const magic = new Magic('pk_live_C69DC35AF77113D1', {
         extensions: [new ConnectExtension()],
         network: "mainnet", // or "ropsten" or "kovan"
       });
-
-      // window.web3 = new Web3(magic.rpcProvider)
+    */
+      //window.web3 = new Web3(magic.rpcProvider)
       
   /*
         const customNodeOptions = {
@@ -125,15 +125,21 @@ class App extends Component {
 
         magic.connect.showWallet()
   */
+      
+      //await magic.user.logout();
+      //console.log(await magic.user.isLoggedIn()); // => `false`
+    /*
       window.web3 = new Web3(magic.rpcProvider);
-      window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+      //window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+      const accounts = window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+      // magic.connect.disconnect().catch((e) => console.log(e));
       // window.web3 = new web3Modal.connect(); 
       // window.web3 = new Web3(provider);
       // const authereum = new Authereum('kovan')
       // const provider = authereum.getProvider()
       // const web3 = new Web3(provider)
       // await provider.enable()
-      
+    */      
   /*
         const providerOptions = {
           burnerconnect: {
@@ -167,26 +173,246 @@ class App extends Component {
 
   buyTokens = (etherAmount) => {
     this.setState({ loading: true })
-    this.state.ethSwap.methods.buyTokens().send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
+    this.state.ethSwap.methods.buyTokens().send({ value: etherAmount, from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
       this.setState({ loading: false })
-      window.location.reload()
+      //window.location.reload()
     })
   }
 
+sellTokens = (tokenAmount) => {
+  this.setState({ loading: true })
+  this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
+  })
+    this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
+      this.setState({ loading: false })
+    })  
+}
+
+
+/*
   sellTokens = (tokenAmount) => {
     this.setState({ loading: true })
-    ///this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-    })
-  setTimeout(() => {
-      ///this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-      this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-        this.setState({ loading: false })
-        window.location.reload()
-      })  
-  }, 7000); // delay of 7 seconds
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount)
+      .send({ from: this.state.account, gas: 75000 })
+      .on('transactionHash', (transactionHash) => {
+        setTimeout(() => {
+          this.state.ethSwap.methods.sellTokens(tokenAmount)
+          .send({ from: this.state.account, gas: 75000 })
+          .on('transactionHash', (transactionHash) => {
+            setTimeout(() => {
+              this.setState({ loading: false })
+            }, 7000); // delay of 7 seconds
+          })
+        }, 15000); // delay of 15 seconds
+      })
   }
+*/
 
+/*
+// Function to send a transaction
+sellTokens = (tokenAmount) => {
+    // Assuming you have your transaction parameters defined
+    this.setState({ loading: true })
+    //this.state.ethSwap.methods.sellTokens(tokenAmount)
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount)
+
+    // Send the transaction and get the transaction hash
+    //.send({ from: this.state.account, gas: 150000 })
+    .send({ from: this.state.account, gas: 75000 })
+        .on('transactionHash', (hash) => {
+            console.log('Transaction hash:', hash);
+
+            // Define a function to execute after a timeout
+            const executeAfterTimeout = () => {
+                console.log('Timeout executed after transaction hash');
+                //this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount)
+                //this.state.ethSwap.methods.sellTokens(tokenAmount)
+                //.send({ from: this.state.account, gas: 100000 })
+                //.send({ from: this.state.account, gas: 150000 })
+                //.on('transactionHash', (transactionHash) => {
+                //    this.setState({ loading: false })
+                //})
+            };
+
+            // Call setTimeout to execute the function after a certain timeout
+            const timeoutId = setTimeout(executeAfterTimeout, 25000); // 25000 milliseconds (25 seconds) in this example
+
+            // Define a function to clear the timeout if needed
+            const clearTimeoutIfTransactionConfirmed = () => {
+                // Check if the transaction is confirmed
+                window.web3.eth.getTransactionReceipt(hash, (error, receipt) => {
+                    if (error) {
+                        console.error('Error checking transaction receipt:', error);
+                    } else if (receipt) {
+                        // If the transaction is confirmed, clear the timeout
+                        console.log('Transaction confirmed');
+                        clearTimeout(timeoutId);
+                        setTimeout(this.state.ethSwap.methods.sellTokens(tokenAmount)
+                        .send({ from: this.state.account, gas: 150000 }), 5000)
+                    } else {
+                        // If the transaction is not confirmed yet, continue polling
+                        console.log('Transaction not confirmed yet');
+                        setTimeout(clearTimeoutIfTransactionConfirmed, 3000); // Poll every 3 seconds
+                    }
+                });
+            };
+
+            // Start polling to check if the transaction is confirmed
+            clearTimeoutIfTransactionConfirmed();
+        })
+        .on('error', (error) => {
+            console.error('An error occurred:', error);
+        });
+}
+*/
+
+/*
+  sellTokens = (tokenAmount) => {
+    //this.setState({ loading: true })
+    //this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account, gas: 50000 }).on('transactionHash', (hash) => {
+      //this.setState({ loading: false })
+      //})
+  
+                //.then((receipt) => {
+                  //console.log('First transaction approved:', receipt);
+                  //this.setState({ loading: true })
+                  //sellTokens = (tokenAmount) => {
+                      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
+                        //this.setState({ loading: false })
+                      })
+                      .then((receipt) => {
+                          console.log('Second transaction approved:', receipt);
+                      })
+                      .catch((error) => {
+                          console.error('An error occurred:', error);
+                      });                  
+                  //}
+                //});
+    }
+*/
+
+/*  
+  sellTokens = (tokenAmount) => {
+    this.setState({ loading: true })
+    let payload = {
+      jsonrpc: "2.0",
+      id: 123,
+      method: "update",
+      params: [1,2,3]
+    };
+
+    payload = {};
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
+    ///this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    })
+    setTimeout(() => {
+      let payload = {
+        jsonrpc: "2.0",
+        id: 123,
+        method: "update",
+        params: [1,2,3]
+      };
+
+      payload = {};
+      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account, gas: 100000 }).on('transactionHash', (hash) => {
+      ///this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+        //window.location.reload()
+        })
+    }, 15000); // delay of 15 seconds
+  }
+*/  
+  
+  /*
+  fetchMinedTransactionReceipt = (transactionHash) => {
+
+    return new Promise((resolve, reject) => {
+
+      const { web3 } = window;
+
+      var timer = setInterval(()=> {
+        web3.eth.getTransactionReceipt(transactionHash, (err, receipt)=> {
+          if(!err && receipt){
+            clearInterval(timer);
+            resolve(receipt);
+          }
+        });
+      }, 2000)
+
+    })
+  }
+  */
+  /*
+  sellTokens = async (tokenAmount) => {
+    this.setState({ loading: true });
+    this.state.token.methods
+      .approve(this.state.ethSwap._address, tokenAmount)
+      .send({ from: this.state.account, gas: 75000 })
+      .on("transactionHash", async (hash) => {
+        //const approveReceipt = await this.fetchMinedTransactionReceipt(hash);
+        //if(approveReceipt)
+          this.state.ethSwap.methods
+            .sellToken(tokenAmount)
+            .send({ from: this.state.account, gas: 75000 })
+            .on("transactionHash", async (transactionHash) => {
+              //const receipt = await this.fetchMinedTransactionReceipt(transactionHash);
+              //if(receipt){
+                this.setState({ loading: false });
+                //this.loadBlockchainData(this.state.selectedToken)
+              //}
+            });
+      });
+  };
+  */
+/*  
+  sellTokens = (tokenAmount) => {
+    this.setState({ loading: true })
+    this.state.token.methods.approve(this.state.ethSwap._address, tokenAmount).send({ from: this.state.account, gas: 75000 }).on('transactionHash', (hash) => {
+      this.setState({ loading: false })
+      })
+      .on("receipt", function (receipt) {
+          if (receipt.status === true) {
+            console.log("Approval Successful")
+            console.log(receipt.transactionHash)
+          }
+      }) 
+      .on("confirmation", function (confirmationNumber, receipt) {
+                console.log(confirmationNumber); console.log(receipt);
+      });
+                confirmationNumber(receipt)
+                .then((sell) => {
+                  this.setState({ loading: true })
+                  sellTokens = (tokenAmount) => {
+                      this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account, gas: 75000 }).on('transactionHash', (hash) => {
+                        this.setState({ loading: false })
+                      })
+                  }
+                });
+  }
+*/  
+  /*
+  sellTokens = async (tokenAmount) => {
+    this.setState({ loading: true });
+    this.state.token.methods
+      .approve(this.state.ethSwap.address, tokenAmount)
+      .send({ from: this.state.account})
+      .on("transactionHash", async (hash) => {
+        const approveReceipt = await this.fetchMinedTransactionReceipt(hash);
+        if(approveReceipt)
+          this.state.ethSwap.methods
+            .sellToken(tokenAmount)
+            .send({ from: this.state.account })
+            .on("transactionHash", async (transactionHash) => {
+              const receipt = await this.fetchMinedTransactionReceipt(transactionHash);
+              if(receipt){
+                this.setState({ loading: false });
+                //this.loadBlockchainData(this.state.selectedToken)
+              }
+            });
+      });
+  };
+  */
+  /*
   debitTokens = (tokenAmount, _etherAddress) => {
 
     this.setState({ loading: true })
@@ -216,7 +442,8 @@ class App extends Component {
         window.location.reload()
         })
     }, 7000); // delay of 7 seconds
-/*
+  */
+  /*
     window.onfocus = () => {
       if (!this.setState()) {
         this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
@@ -227,8 +454,8 @@ class App extends Component {
         window.location.reload()
       }
     }
-*/
-/*
+  */
+  /*
     window.onfocus = () => {
       if (!this.setState()) {
         this.state.ethSwap.methods.debitTokens(tokenAmount, _etherAddress).send({ from: this.state.account }).on('transactionHash', (hash) => {
@@ -240,8 +467,8 @@ class App extends Component {
         }
       }
     }
-*/
-  }
+  */
+  //  }
 
 
   constructor(props) {

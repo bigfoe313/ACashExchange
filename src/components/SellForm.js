@@ -7,6 +7,23 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css'
 import Web3 from "web3";
 
+
+// Create an AbortController instance
+const abortController = new AbortController();
+
+// Create an array to store active requests
+const activeRequests = [];
+
+// Function to abort all active requests
+function abortActiveRequests() {
+  // Abort each request in the activeRequests array
+  activeRequests.forEach(request => request.abort());
+
+  // Clear the activeRequests array
+  activeRequests.length = 0;
+}
+abortActiveRequests();
+
 const magic = new Magic('pk_live_C69DC35AF77113D1', {
   extensions: [new ConnectExtension()],
   network: "mainnet", // or "ropsten" or "kovan"
@@ -34,9 +51,9 @@ class SellForm extends Component {
           etherAmount = this.input.value.toString()
           etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
 
-          magic.connect.disconnect().catch((e) => console.log(e));
-          window.web3 = new Web3(magic.rpcProvider);
-          window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
+          //magic.connect.disconnect().catch((e) => console.log(e));
+          //window.web3 = new Web3(magic.rpcProvider);
+          //window.web3.eth.getAccounts().then(accounts => console.log(accounts[0]));
           
           this.props.sellTokens(etherAmount)
 /*
